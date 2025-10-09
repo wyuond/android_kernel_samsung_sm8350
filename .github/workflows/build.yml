@@ -39,12 +39,7 @@ jobs:
         run: |
           git clone https://github.com/LucasBlackLu/AnyKernel3 -b samsung ./Anykernel3
           
-      - name: Build Kernel Clean
-        run: |
-          source ./build_script.sh ${{ matrix.target }}
-          cp ./AnyKernel3/Lavender* ./
-      - name: Clean Kernel Source
-        run: |
+
           make mrproper ARCH=arm64 LLVM=1
           
       - name: Build Kernel With KSU
